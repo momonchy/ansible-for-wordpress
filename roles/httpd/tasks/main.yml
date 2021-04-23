@@ -1,0 +1,24 @@
+- name: Install Apache
+  yum:
+    name:
+      - httpd
+      - httpd-devel
+    state: present
+
+- name: Apply patch to httpd.conf
+  patch:
+    src: httpd.conf.patch
+    dest: /etc/httpd/conf/httpd.conf
+
+- name: Delete unnecessary files
+  file:
+    path: "/etc/httpd/conf.d/{{ item }}"
+  with_items:
+    - autoindex.conf
+    - welcome.conf
+
+- name: Start Apache
+  service:
+    name: httpd
+    state: started
+    enabled: yes

@@ -1,0 +1,22 @@
+- name: Install common packages
+  yum:
+    name:
+      - util-linux
+      - patch
+      - tar
+    state: present
+
+- name: Set timezone to Asia/Tokyo
+  timezone:
+    name: Asia/Tokyo
+
+- name: Set environment
+  copy:
+    src: "{{ item }}"
+    dest: "/root/.{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - bash_profile
+    - bashrc

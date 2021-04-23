@@ -1,0 +1,26 @@
+- name: Install MariaDB
+  yum:
+    name:
+      - mariadb
+      - mariadb-server
+      - MySQL-python
+    state: present
+
+- name: Start MariaDB
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Create the WordPress database
+  mysql_db:
+    name: "{{ database }}"
+    state: present
+
+- name: Create the WordPress user
+  mysql_user:
+    name: "{{ username }}"
+    password: "{{ password }}"
+    priv: "wordpress.*:ALL"
+    host: localhost
+    state: present

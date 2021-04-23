@@ -1,0 +1,9 @@
+- hosts: localhost
+  become: yes
+  force_handlers: true
+
+  roles:
+    - based
+    - httpd
+    - mariadb
+    - wordpress

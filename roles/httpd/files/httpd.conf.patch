@@ -1,0 +1,31 @@
+--- httpd.conf.org	2021-04-21 13:24:24.140721066 +0900
++++ httpd.conf	2021-04-21 13:25:28.849591119 +0900
+@@ -141,14 +141,14 @@
+     # http://httpd.apache.org/docs/2.4/mod/core.html#options
+     # for more information.
+     #
+-    Options Indexes FollowSymLinks
++    Options -Indexes -FollowSymLinks
+
+     #
+     # AllowOverride controls what directives may be placed in .htaccess files.
+     # It can be "All", "None", or any combination of the keywords:
+     #   Options FileInfo AuthConfig Limit
+     #
+-    AllowOverride None
++    AllowOverride All
+
+     #
+     # Controls who can get stuff from this server.
+@@ -360,3 +360,11 @@
+ #
+ # Load config files in the "/etc/httpd/conf.d" directory, if any.
+ IncludeOptional conf.d/*.conf
++
++ServerTokens Prod
++Header unset "X-Powered-By"
++RequestHeader unset Proxy
++Header append X-Frame-Options SAMEORIGIN
++Header set X-XSS-Protection "1; mode=block"
++Header set X-Content-Type-Options nosniff
++TraceEnable Off

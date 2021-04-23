@@ -1,0 +1,42 @@
+--- wp-config-sample.php	2021-04-22 17:43:53.000000000 +0900
++++ wp-config.php	2021-04-22 17:48:32.000000000 +0900
+@@ -26,13 +26,13 @@
+ 
+ // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
+ /** WordPress のためのデータベース名 */
+-define( 'DB_NAME', 'database_name_here' );
++define( 'DB_NAME', 'wordpress' );
+ 
+ /** MySQL データベースのユーザー名 */
+-define( 'DB_USER', 'username_here' );
++define( 'DB_USER', 'wordpress' );
+ 
+ /** MySQL データベースのパスワード */
+-define( 'DB_PASSWORD', 'password_here' );
++define( 'DB_PASSWORD', 'password' );
+ 
+ /** MySQL のホスト名 */
+ define( 'DB_HOST', 'localhost' );
+@@ -52,14 +52,14 @@
+  *
+  * @since 2.6.0
+  */
+-define( 'AUTH_KEY',         'put your unique phrase here' );
+-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
+-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
+-define( 'NONCE_KEY',        'put your unique phrase here' );
+-define( 'AUTH_SALT',        'put your unique phrase here' );
+-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
+-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
+-define( 'NONCE_SALT',       'put your unique phrase here' );
++define('AUTH_KEY',         '^%SKrt>UgPX/Bx{0Zt7y#b~ibuH1}nMO-}lW|2*N_*-P|G`U cFyP&oq@H}YNL.N');
++define('SECURE_AUTH_KEY',  '~5kH7cC{t1o}E@gl3*=~.U)$uc`j|FmlpdW*OC1 GRH%32|pAeth$F {>#H;rrqR');
++define('LOGGED_IN_KEY',    'IpW%dzFK^A.a|In({l0qj[qaZ_8czL8+PksM8M1s|I+zKxpusC@-A,>;()`D321r');
++define('NONCE_KEY',        'bL?q4.8 8y0v8~D+`kCW~l~ma1od~A>Z&mxl%+buU+Z/O2Mt_S}4VKW&rV#y_|G}');
++define('AUTH_SALT',        'iJX|)#c5nLbq|+1-k?$aX$!ad{+,eeH-vZ*>F:vi30++UDKwuG-]kzgL>+~a$oQC');
++define('SECURE_AUTH_SALT', 'fp3n<%uOWA9fBkdk3w!q^cLKKcA`5Lx#Mcq`|JDrT7p=$CZu`d-Z+@Y@4-5bt&?Y');
++define('LOGGED_IN_SALT',   'cE/7.$@w.G5}azwxhsKX?}c#/@O2=z~Y|wm2[`zP.ocFGs9+j@|l,FQV`_}[J7d^');
++define('NONCE_SALT',       '5tcij/n 5Z1b~Zh7r)?d?>>TU)5}@t[~7?)h|pf9P&BeVmo2`rbXJFkTs9n2-0k?');
+ 
+ /**#@-*/
+ 
