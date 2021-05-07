@@ -15,6 +15,19 @@
       - glibc-langpack-ja
     state: present
 
+- name: Modify restriction in php.ini
+  lineinfile:
+    dest: /etc/php.ini
+    state: present
+    backrefs: yes
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - regexp: '^post_max_size = 8M'
+      line: 'post_max_size = 128M'
+    - regexp: '^upload_max_filesize = 2M'
+      line: 'upload_max_filesize = 128M'
+
 - name: Download WordPress
   get_url:
     url: https://ja.wordpress.org/wordpress-5.7.1-ja.tar.gz
