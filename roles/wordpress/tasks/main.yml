@@ -37,9 +37,9 @@
     src: wp-config.php.patch
     dest: /var/www/html/wp-config.php
 
-- name: chown -R apache:apache /var/www/wordpress
+- name: chown -R apache:apache /var/www/html
   file:
-    path: /var/www/wordpress
+    path: /var/www/html
     state: directory
     owner: apache
     group: apache
