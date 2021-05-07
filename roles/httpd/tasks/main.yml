@@ -13,6 +13,7 @@
 - name: Delete unnecessary files
   file:
     path: "/etc/httpd/conf.d/{{ item }}"
+    state: absent
   with_items:
     - autoindex.conf
     - welcome.conf
