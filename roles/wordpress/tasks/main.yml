@@ -30,7 +30,7 @@
 
 - name: Download WordPress
   get_url:
-    url: https://ja.wordpress.org/wordpress-5.7.1-ja.tar.gz
+    url: https://ja.wordpress.org/wordpress-5.8.1-ja.tar.gz
     dest: /tmp
 
 - name: Unzip WordPress
