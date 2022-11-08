@@ -64,12 +64,12 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   with_items:
-    - regexp: 'database_name_here'
-      line: '{{ database }}'
-    - regexp: 'username_here'
-      line: '{{ username }}'
-    - regexp: 'password_here'
-      line: '{{ password }}'
+    - regexp: '^(.*)database_name_here(.*)$'
+      line: '\1{{ database }}\2'
+    - regexp: '^(.*)username_here(.*)$'
+      line: '\1{{ username }}\2'
+    - regexp: '^(.*)password_here(.*)$'
+      line: '\1{{ password }}\2'
   
 - name: chown -R apache:apache /var/www/html
   file:
