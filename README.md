@@ -44,12 +44,16 @@ OS: Amazon Linux 2
     ```
     # git clone {本リポジトリ}
     ```
-5. Playbook の実行
+5. Database 設定情報の変更
     ```
     # cd {本リポジトリ}/
+    # vim playbook.yml
+    ```
+6. Playbook の実行
+    ```
     # ansible-playbook playbook.yml
     ```
-6. ブラウザで WordPress へ接続し初期セットアップ
+7. ブラウザで WordPress へ接続し初期セットアップ
     ```
     http://{wordpress/url}
     ```
@@ -57,6 +61,7 @@ OS: Amazon Linux 2
 <br>
 
 ## Docker環境に構築する場合
+
 下記手順に登場する Docker イメージやコンテナの「タグ名」には好きなものをチョイスして下さい。
 
 <br>
@@ -85,12 +90,16 @@ OS: Amazon Linux 2
     ```
     $ docker exec -it amazonlinux /bin/bash
     ```
-5. リポジトリをマウントした場所へ移動し、Playbook を実行
+5. リポジトリをマウントした場所へ移動し、Database 設定情報の変更
     ```
     # cd /mnt/
+    # vim playbook.yml
+    ```
+6. Playbook を実行
+    ```
     # ansible-playbook playbook.yml
     ```
-6. ブラウザで WordPress へ接続し初期セットアップ
+7. ブラウザで WordPress へ接続し初期セットアップ
     ```
     http://localhost:8080
     ```

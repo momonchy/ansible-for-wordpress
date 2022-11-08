@@ -5,7 +5,7 @@
   vars:
     - db_name: wordpress
     - db_user: wpadmin
-    - db_pass: m4RFNPLnHYYEmHRG
+    - db_pass: password
 
   roles:
     - based
