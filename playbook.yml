@@ -2,14 +2,22 @@
   become: yes
   force_handlers: true
 
+  db_settings:
+    database: wordpress
+    username: wpadmin
+    password: m4RFNPLnHYYEmHRG
+
   roles:
     - based
     - httpd
     - role: mariadb
       vars:
-        database: wordpress
-        username: wpadmin
-        password: password
+        database: db_settings.database
+        username: db_settings.username
+        password: db_settings.password
     - role: wordpress
       vars:
         packages: wordpress-6.1-ja.tar.gz
+        database: db_settings.database
+        username: db_settings.username
+        password: db_settings.password

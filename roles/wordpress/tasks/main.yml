@@ -45,11 +45,32 @@
     dest: /var/www/html/wp-config.php
     mode: 0644
 
+- name: Replace CRLF to LF
+  replace:
+    dest: /var/www/html/wp-config.php
+    regexp: '(.*)\r\n'
+    replace: '\1\n'
+
 - name: Apply patch to wp-config.php
   patch:
     src: wp-config.php.patch
     dest: /var/www/html/wp-config.php
 
+- name: Rreplace database settings
+  lineinfile:
+    dest: /var/www/html/wp-config.php
+    state: present
+    backrefs: yes
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - regexp: 'database_name_here'
+      line: '{{ database }}'
+    - regexp: 'username_here'
+      line: '{{ username }}'
+    - regexp: 'password_here'
+      line: '{{ password }}'
+  
 - name: chown -R apache:apache /var/www/html
   file:
     path: /var/www/html

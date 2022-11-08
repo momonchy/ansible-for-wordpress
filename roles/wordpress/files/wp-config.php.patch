@@ -1,23 +1,19 @@
---- wp-config-sample.php	2021-04-22 17:43:53.000000000 +0900
-+++ wp-config.php	2021-04-22 17:48:32.000000000 +0900
-@@ -26,13 +26,13 @@
- 
- // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
- /** WordPress のためのデータベース名 */
--define( 'DB_NAME', 'database_name_here' );
-+define( 'DB_NAME', 'wordpress' );
- 
- /** MySQL データベースのユーザー名 */
--define( 'DB_USER', 'username_here' );
-+define( 'DB_USER', 'wordpress' );
- 
- /** MySQL データベースのパスワード */
--define( 'DB_PASSWORD', 'password_here' );
-+define( 'DB_PASSWORD', 'password' );
- 
- /** MySQL のホスト名 */
- define( 'DB_HOST', 'localhost' );
-@@ -52,14 +52,14 @@
+--- wp-config-sample.php	2021-12-14 17:44:02.000000000 +0900
++++ wp-config.php	2022-11-08 16:19:19.977055013 +0900
+@@ -18,6 +18,12 @@
+  * @package WordPress
+  */
+
++if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
++	$_SERVER['HTTPS'] = 'on';
++} elseif (isset( $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO']) && $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] === 'https') {
++	$_SERVER['HTTPS'] ='on';
++}
++
+ // ** Database settings - You can get this info from your web host ** //
+ /** The name of the database for WordPress */
+ define( 'DB_NAME', 'database_name_here' );
+@@ -48,14 +54,14 @@
   *
   * @since 2.6.0
   */
@@ -37,6 +33,6 @@
 +define('SECURE_AUTH_SALT', 'fp3n<%uOWA9fBkdk3w!q^cLKKcA`5Lx#Mcq`|JDrT7p=$CZu`d-Z+@Y@4-5bt&?Y');
 +define('LOGGED_IN_SALT',   'cE/7.$@w.G5}azwxhsKX?}c#/@O2=z~Y|wm2[`zP.ocFGs9+j@|l,FQV`_}[J7d^');
 +define('NONCE_SALT',       '5tcij/n 5Z1b~Zh7r)?d?>>TU)5}@t[~7?)h|pf9P&BeVmo2`rbXJFkTs9n2-0k?');
- 
+
  /**#@-*/
  
