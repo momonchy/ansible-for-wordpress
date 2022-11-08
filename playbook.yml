@@ -5,5 +5,11 @@
   roles:
     - based
     - httpd
-    - mariadb
-    - wordpress
+    - role: mariadb
+      vars:
+        database: wordpress
+        username: wpadmin
+        password: password
+    - role: wordpress
+      vars:
+        packages: wordpress-6.1-ja.tar.gz

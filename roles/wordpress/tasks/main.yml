@@ -30,12 +30,12 @@
 
 - name: Download WordPress
   get_url:
-    url: https://ja.wordpress.org/wordpress-5.8.1-ja.tar.gz
+    url: https://ja.wordpress.org/{{ packages }}
     dest: /tmp
 
 - name: Unzip WordPress
   unarchive:
-    src: /tmp/wordpress-5.8.1-ja.tar.gz
+    src: /tmp/{{ packages }}
     dest: /var/www/html
     extra_opts: [--strip-components=1]
 

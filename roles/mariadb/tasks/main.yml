@@ -21,6 +21,6 @@
   mysql_user:
     name: "{{ username }}"
     password: "{{ password }}"
-    priv: "wordpress.*:ALL"
+    priv: "{{ database }}.*:ALL"
     host: localhost
     state: present
