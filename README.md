@@ -7,9 +7,10 @@
 
 ## 注意
 - インストールパッケージバージョンの互換性について、冪等性等はあまり考慮されていません
-- DB認証情報については以下二点を編集して下さい（要見直し）
-    - ```roles > mariadb > vars > main.yml```
-    - ```roles > wordpress > files > wp-config.php.patch```
+- PlayBookを実行する前に以下のDatabase設定情報を編集して下さい
+    ```
+    ./playbook.yml
+    ```
 
 <br>
 
