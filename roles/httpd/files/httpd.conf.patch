@@ -5,7 +5,7 @@
      # for more information.
      #
 -    Options Indexes FollowSymLinks
-+    Options -Indexes -FollowSymLinks
++    Options -Indexes +FollowSymLinks
 
      #
      # AllowOverride controls what directives may be placed in .htaccess files.
